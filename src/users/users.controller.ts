@@ -1,26 +1,10 @@
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  HttpCode,
-  HttpStatus,
-  Param,
-  Post,
-  Req,
-} from '@nestjs/common';
-import {
-  ApiBody,
-  ApiOperation,
-  ApiParam,
-  ApiResponse,
-  ApiTags,
-} from '@nestjs/swagger';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { UsersService } from './users.service';
 import { CreateUserDto, FindUserByIdDto } from './users.dto';
 
 @ApiTags('Users')
-@Controller()
+@Controller("api")
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 

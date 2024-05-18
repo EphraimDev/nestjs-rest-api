@@ -3,13 +3,6 @@ import { Document } from 'mongoose';
 
 @Schema({
   timestamps: true,
-  toJSON: {
-    transform(doc, ret) {
-      ret.id = doc._id;
-      delete ret._id;
-      delete ret.__v;
-    },
-  },
 })
 export class User extends Document {
   @Prop({ required: true, unique: true })

@@ -3,14 +3,14 @@ import { UsersController } from './users.controller';
 import { UsersService } from './users.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { User, UserSchema } from './users.schema';
-import { RabbitmqService } from 'src/services/rabbitmq.service';
-import { EmailService } from 'src/services/email.service';
+import { EventEmitter2 } from '@nestjs/event-emitter';
+import { ConfigService } from '@nestjs/config';
 
 @Module({
   imports: [
     MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
   ],
   controllers: [UsersController],
-  providers: [UsersService, RabbitmqService, EmailService],
+  providers: [UsersService, EventEmitter2, ConfigService],
 })
 export class UsersModule {}
